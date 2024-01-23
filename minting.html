@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StampRocks</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+
+        #image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image-card {
+            position: relative;
+            margin: 5px;
+            overflow: hidden;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-card img {
+            width: 28px;
+            height: 28px;
+            object-fit: cover;
+        }
+
+
+        .download-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            display: none;
+            z-index: 1;
+        }
+
+        .image-card:hover {
+            transform: scale(1.05);
+        }
+
+        .image-card:hover .download-btn {
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="image-container">
+    <script>
+        function createDownloadLink(imageIndex) {
+            const a = document.createElement('a');
+            a.href = `results/${'StampRock' + (imageIndex + 1)}.png`;
+            a.download = `${'StampRock' + (imageIndex + 1)}.png`;
+            a.className = 'download-btn';
+            a.innerText = '↓';
+            return a;
+        }
+
+        function createImageCard(imageIndex) {
+            const card = document.createElement('div');
+            card.className = 'image-card';
+
+            const img = document.createElement('img');
+            img.src = `results/${'StampRock' + (imageIndex + 1)}.png`;
+
+            const downloadBtn = createDownloadLink(imageIndex);
+
+            card.appendChild(img);
+            card.appendChild(downloadBtn);
+
+            document.getElementById('image-container').appendChild(card);
+        }
+
+        for (let i = 0; i < 333; i++) {
+            createImageCard(i);
+        }
+    </script>
+</div>
+</body>
+</html>

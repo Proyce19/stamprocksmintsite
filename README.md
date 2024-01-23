@@ -1,1 +1,1 @@
-# stamprocksmintsite
+# Mint StampRocks

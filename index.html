@@ -79,16 +79,22 @@
         }
 
         function createImageCard(imageIndex) {
+            stamped = [8, 267]
             const card = document.createElement('div');
             card.className = 'image-card';
 
             const img = document.createElement('img');
             img.src = `./results/${'StampRock' + (imageIndex + 1)}.png`;
 
-            const downloadBtn = createDownloadLink(imageIndex);
-
             card.appendChild(img);
+
+            if (!stamped.includes(imageIndex + 1)){
+            const downloadBtn = createDownloadLink(imageIndex);
             card.appendChild(downloadBtn);
+            }
+            else{
+                card.style.pointerEvents='none';
+            }
 
             document.getElementById('image-container').appendChild(card);
         }

@@ -72,7 +72,7 @@
     <script>
         function createDownloadLink(imageIndex) {
             const a = document.createElement('a');
-            a.href = `results/${'StampRock' + (imageIndex + 1)}.png`;
+            a.href = `./results/${'StampRock' + (imageIndex + 1)}.png`;
             a.download = `${'StampRock' + (imageIndex + 1)}.png`;
             a.className = 'download-btn';
             a.innerText = '↓';
@@ -84,7 +84,7 @@
             card.className = 'image-card';
 
             const img = document.createElement('img');
-            img.src = `results/${'StampRock' + (imageIndex + 1)}.png`;
+            img.src = `./results/${'StampRock' + (imageIndex + 1)}.png`;
 
             const downloadBtn = createDownloadLink(imageIndex);
 

@@ -96,8 +96,13 @@
                       279, 318, 291, 256, 137, 59, 238, 82, 311, 110, 36, 191, 247, 140, 205, 173, 157, 158, 207, 103, 188, 107, 89, 214,
                      150, 127, 170, 242, 130, 285, 232, 138, 172, 259, 114, 80, 43, 68, 245, 116, 39, 76, 97, 184, 38, 189]
 
+            
+            const div = document.createElement('div');
             const card = document.createElement('div');
             card.className = 'image-card';
+
+            const card_n = document.createElement('div');
+            card_n.innerHTML = imageIndex + 1;
 
             const img = document.createElement('img');
             img.src = `./results/${'StampRock' + (imageIndex + 1)}.png`;
@@ -114,7 +119,12 @@
                 card.style.background = 'pink'
             }
 
-            document.getElementById('image-container').appendChild(card);
+            div.appendChild(card)
+            div.appendChild(card_n)
+            div.style.textAlign = 'center'
+            div.style.fontSize = '10px'
+            div.style.fontWeight = 'bold'
+            document.getElementById('image-container').appendChild(div);
         }
 
         for (let i = 0; i < 333; i++) {
